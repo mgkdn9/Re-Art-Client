@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { scryRenderedDOMComponentsWithTag } from 'react-dom/test-utils'
 import { useNavigate } from 'react-router-dom'
 import { Form, Button, Card } from 'react-bootstrap'
-import Tag from '../../Tag'
-import messages from '../../shared/AutoDismissAlert/messages'
 
 const box = {
   textAlign: 'left',

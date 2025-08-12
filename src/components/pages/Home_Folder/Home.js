@@ -1,4 +1,3 @@
-import Tag from "../../Tag"
 import CarouselImage from "../../homeComponents/Carousel"
 import Cards from "../../homeComponents/Cards"
 import PlansSection from "../../homeComponents/Plans"
@@ -43,9 +42,6 @@ const Home = (props) => {
 			<div>
 				<h1 className="text-center" style={text}>From Our Community</h1>
 				<Community />
-			</div>
-			<div>
-				{/* <Tag /> */}
 			</div>
 		</>
 	)

@@ -2,6 +2,7 @@
 import React, { useState, Fragment, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
+import apiUrl from "./apiConfig";
 
 // import AuthenticatedRoute from './components/shared/AuthenticatedRoute'
 import AutoDismissAlert from './components/shared/AutoDismissAlert/AutoDismissAlert'
@@ -63,7 +64,7 @@ const App = () => {
 
 	const getProfile = () => {
 		if(user){
-			fetch(`http://localhost:8000/profiles/user/${user._id}`)
+			fetch(`${apiUrl}/profiles/user/${user._id}`)
 			.then(res => res.json())
 			.then(foundObject => {
 				setFoundProfile(foundObject.profile[0])
@@ -92,7 +93,7 @@ const App = () => {
 			'Authorization': `Bearer ${user.token}`
 		  },
 		}
-		fetch(`http://localhost:8000/profiles/user/${user._id}`, requestOptions)
+		fetch(`${apiUrl}/profiles/user/${user._id}`, requestOptions)
 		  .then(patchedProfile => patchedProfile)
 		  .catch(err => console.error(err))
 	}
