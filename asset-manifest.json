@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Re-Art-Client/static/css/main.571897cb.chunk.css",
-    "main.js": "/Re-Art-Client/static/js/main.540978c4.chunk.js",
-    "main.js.map": "/Re-Art-Client/static/js/main.540978c4.chunk.js.map",
+    "main.js": "/Re-Art-Client/static/js/main.d7a4920d.chunk.js",
+    "main.js.map": "/Re-Art-Client/static/js/main.d7a4920d.chunk.js.map",
     "runtime-main.js": "/Re-Art-Client/static/js/runtime-main.3eb91a24.js",
     "runtime-main.js.map": "/Re-Art-Client/static/js/runtime-main.3eb91a24.js.map",
     "static/css/2.375c030d.chunk.css": "/Re-Art-Client/static/css/2.375c030d.chunk.css",
@@ -28,6 +28,6 @@
     "static/css/2.375c030d.chunk.css",
     "static/js/2.54de2d81.chunk.js",
     "static/css/main.571897cb.chunk.css",
-    "static/js/main.540978c4.chunk.js"
+    "static/js/main.d7a4920d.chunk.js"
   ]
 }
