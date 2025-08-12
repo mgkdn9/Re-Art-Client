@@ -11,8 +11,6 @@ if (window.location.hostname === 'localhost') {
 	apiUrl = apiUrls.production
 }
 
-// create local host variable for stripe api interaction
-const API_ENDPOINT = apiUrls.development
 export const stripePaymentMethodHandler = async (data, cb) => {
 	const { amount, result } = data;
 	if (result.error) {
@@ -32,7 +30,7 @@ export const stripePaymentMethodHandler = async (data, cb) => {
    
   // place backend API call for payment
   const stripePayment = async data => {
-	const res = await fetch(`${API_ENDPOINT}/pay`, {
+	const res = await fetch(`${apiUrl}/pay`, {
 	  method: 'POST',
 	  headers: { 'Content-Type': 'application/json' },
 	  body: JSON.stringify(data),
