@@ -5,6 +5,7 @@ import Pieces from './Pieces'
 import { useNavigate } from 'react-router-dom'
 // button styling
 import { Button } from 'react-bootstrap'
+import apiUrl from '../../../apiConfig'
 
 
 const button = {
@@ -32,13 +33,12 @@ const button = {
   }
 
 const Filtered_Art = (props) => {
-  console.log('Profile: ',props.profile)
   const navigate = useNavigate()
   // State that holds all objects from Server
   const [art, setArt] = useState([])
   // useEffect that access the Server API
   useEffect(() => {
-      fetch(`http://localhost:8000/pieces/profile/${props.profile._id}`)
+      fetch(`${apiUrl}/pieces/profile/${props.profile._id}`)
       .then(res => res.json())
       .then(foundPieces=>{
           // Sets API data to state allArt
@@ -78,10 +78,10 @@ const Filtered_Art = (props) => {
         <ul>
           <p style={subtitle}>You have selected our <strong>Basic Access</strong> package. Below is a sampling of the artwork we will send you, based on your profile preferences of:</p>
                 {props.profile.tags.map((tag)=>{
-                      return <li style={list}>{tag.name}</li>
+                      return <li style={list}><strong>{tag.name}</strong></li>
                   }) } 
         </ul>
-        <div className = "row">            
+        <div className = "row">
           {pieces}
         </div>
       </div>

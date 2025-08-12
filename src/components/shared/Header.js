@@ -22,11 +22,11 @@ const authenticatedOptions = (
 				The Collection
 			</Link>
 		</Nav.Link>
-		{/* <Nav.Link>
+		<Nav.Link>
 			<Link to='filtered_available_art' style={linkStyle}>
-				Filtered Art
+				Your Art
 			</Link>
-		</Nav.Link> */}
+		</Nav.Link>
 		<Nav.Link>
 			<Link to='subscription' style={linkStyle}>
 				Subscriptions
