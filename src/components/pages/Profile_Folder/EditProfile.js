@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Form, Button, Card } from 'react-bootstrap'
+import apiUrl from "../../../apiConfig";
 
 const box = {
   textAlign: 'left',
@@ -73,7 +74,7 @@ const EditProfile = (props) => {
 
   // api call the gets the tags
   const getTags = () => {
-    fetch('http://localhost:8000/tags')
+    fetch(`${apiUrl}/tags`)
       .then(res => res.json())
       .then(foundTags => {
         setTags(foundTags.tags)
@@ -101,7 +102,7 @@ const EditProfile = (props) => {
         'Authorization': `Bearer ${props.user.token}`
       },
     }
-    fetch(`http://localhost:8000/profiles/user/${props.user._id}`, requestOptions)
+    fetch(`${apiUrl}/profiles/user/${props.user._id}`, requestOptions)
       .then(patchedProfile => {
         props.getProfile()
         navigate('/profile')
@@ -125,7 +126,7 @@ const EditProfile = (props) => {
         'Authorization': `Bearer ${props.user.token}`
       },
     }
-    fetch(`http://localhost:8000/profiles/user/${props.user._id}`, requestOptions)
+    fetch(`${apiUrl}/profiles/user/${props.user._id}`, requestOptions)
       .then(patchedProfile => {
         props.getProfile()
         navigate('/profile')

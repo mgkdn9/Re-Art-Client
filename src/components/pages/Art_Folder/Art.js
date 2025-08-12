@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 // Import Pieces to show each art piece
 import Pieces from './Pieces_All'
+import apiUrl from "../../../apiConfig";
 
 const title = {
     fontSize: '40px',
@@ -21,7 +22,7 @@ const Art = (props) => {
     const [art, setArt] = useState([])
     // useEffect that access the Server API
     useEffect(() => {
-        fetch('http://localhost:8000/pieces')
+        fetch(`${apiUrl}/pieces`)
         .then(res => res.json())
         .then(foundPieces=>{
             // Sets API data to state allArt
