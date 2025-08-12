@@ -1,6 +1,5 @@
 let apiUrl
 const apiUrls = {
-    // YOU MUST CHANGE PRODUCTION URL WHEN DEPLOYING
 	production: 'https://re-art-server.onrender.com',
 	development: 'http://localhost:8000',
 }
