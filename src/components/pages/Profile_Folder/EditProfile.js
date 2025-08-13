@@ -36,7 +36,6 @@ const subtitle = {
 
 const EditProfile = (props) => {
   //useNavigate for redirecting once profile is succesfully patched
-
   const navigate = useNavigate();
 
   // State are set for our currentProfile that is passed from App.js and tags which will come from props.profile as well
@@ -50,6 +49,8 @@ const EditProfile = (props) => {
 
   useEffect(() => {
     setLocalProfile(props.profile); // sync local profile if parent updates
+    setCurrentProfile(props.profile);
+    setTagNames(props.profile.tags.map((e) => e.name));
   }, [props.profile]);
 
   // call to api when components renders and gets the tags from database
@@ -161,6 +162,7 @@ const EditProfile = (props) => {
                 onChange={handleChange}
                 type="text"
                 name="name"
+                value={currentProfile.name || ""}
               />
             </Form.Group>
           </div>
@@ -173,6 +175,7 @@ const EditProfile = (props) => {
                 onChange={handleChange}
                 type="text"
                 name="address"
+                value={currentProfile.address || ""}
               />
             </Form.Group>
           </div>
@@ -182,14 +185,14 @@ const EditProfile = (props) => {
                 Favorite Art Categories
               </Card.Header>
               {tags.map((tag) => (
-                <li style={fav}>
+                <li key={tag._id} style={fav}>
                   <label style={check} htmlFor={tag.name}>
                     {tag.name}
                   </label>
                   <input
                     onChange={handleCheck}
                     type="checkbox"
-                    checked={tagNames.includes(tag.name) ? true : false}
+                    checked={tagNames.includes(tag.name)}
                     name={tag.name}
                     id={tag._id}
                   />
@@ -200,7 +203,7 @@ const EditProfile = (props) => {
           <Button variant="light" type="submit" style={button}>
             Submit
           </Button>
-          <Button variant="light" type="goBack" onClick={goBack} style={button}>
+          <Button variant="light" onClick={goBack} style={button}>
             Cancel
           </Button>
           <Button
