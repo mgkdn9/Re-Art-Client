@@ -72,10 +72,9 @@ const CreateProfile = (props) => {
     fetch(`${apiUrl}/tags`)
       .then(res => res.json())
       .then(foundTags => {
-        console.log('Found Tags by INDEX', foundTags.tags)
         setTags(foundTags.tags)
       })
-      .catch(err => console.log(err))
+      .catch(err => console.error(err))
   }
 
 
@@ -84,7 +83,6 @@ const CreateProfile = (props) => {
   // At the end of function getProfile and patchProfile are run to ensure that profile data in App.js is up to date
   const postProfile = (e) => {
     e.preventDefault()
-    console.log('Pressed Submit button')
     let preJSONBody = {
       name: newProfile.name,
       address: newProfile.address,

@@ -40,9 +40,8 @@ const iconBoxesContainer = {
 function Subscription(props) {
   // uses hook that allows navigation
   const navigate = useNavigate()
-  console.log(props.profile)
 
-  // handels when user trys to sign up for subscription
+  // handles when user tries to sign up for subscription
   // tests if user is populated
   // if populated will go onto next test for profile
   // if passes all tests will enter checkout page

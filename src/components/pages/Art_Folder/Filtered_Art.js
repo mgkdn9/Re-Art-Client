@@ -94,7 +94,7 @@ const Filtered_Art = (props) => {
         </p>
         {props.profile.tags.map((tag) => {
           return (
-            <li style={list}>
+            <li key={tag._id} style={list}>
               <strong>{tag.name}</strong>
             </li>
           );
