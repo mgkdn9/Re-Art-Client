@@ -36,13 +36,13 @@ const SignUp = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
   const onSignUp = (event) => {
     event.preventDefault();
-    setLoading(true)
+    setLoading(true);
 
     const { msgAlert, setUser } = props;
 
@@ -50,7 +50,10 @@ const SignUp = (props) => {
 
     signUp(credentials)
       .then(() => signIn(credentials))
-      .then((res) => setUser(res.data.user))
+      .then((res) => {
+        setUser(res.data.user);
+        sessionStorage.setItem("user", JSON.stringify(res.data.user));
+      })
       .then(() =>
         msgAlert({
           heading: "Sign Up Success",
