@@ -22,12 +22,17 @@ import EditProfile from "./components/pages/Profile_Folder/EditProfile";
 import About from "./components/pages/About_Folder/About";
 
 const App = () => {
-  const [user, setUser] = useState(null);
+  // Get from sessionStorage if available
+  const [user, setUser] = useState(() => {
+    const saved = sessionStorage.getItem("user");
+    return saved ? JSON.parse(saved) : null;
+  });
   const [msgAlerts, setMsgAlerts] = useState([]);
   const [foundProfile, setFoundProfile] = useState({});
 
   const clearUser = () => {
     setUser(null);
+    sessionStorage.removeItem("user");
   };
 
   useEffect(() => {
